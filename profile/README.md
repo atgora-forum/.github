@@ -1,6 +1,4 @@
-# ATgora
-
-**Community forums built on open protocol**
+![ATgora Banner](https://raw.githubusercontent.com/atgora-forum/.github/main/assets/banner.svg)
 
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL%203.0-blue.svg)](https://opensource.org/licenses/AGPL-3.0)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
