@@ -13,9 +13,9 @@ ATgora is in **pre-alpha development**. We're building privacy-focused, decentra
 
 **Current Status:** Planning complete, MVP implementation starting Q1 2026
 
-📅 **Next Milestone:** Phase 1 MVP (Q2 2026)  
+📅 **Next Milestone:** Phase 1 MVP (Q1 2026)  
 🌐 **Website:** [atgora.forum](https://atgora.forum) (coming soon)  
-💬 **Community:** [GitHub Discussions](https://github.com/orgs/atgora-forum/discussions)
+💬 **Community:** ATgora forum (dogfooding - launching with Phase 1)
 
 ---
 
@@ -81,28 +81,29 @@ Traditional forums lock your identity and data into each platform. ATgora uses t
 
 ## Roadmap
 
-**Phase 1: MVP** (Q2 2026)
+**Phase 1: MVP** (Q1 2026)
 - Core forum features + AT Protocol integration
 - Central managed hosting
-- Self-hosting via Docker Compose
+- Staging environment deployment
 - Global aggregator at atgora.forum
 
-**Phase 2: Self-Hosting Release** (Q3 2026)
-- Enhanced self-hosting documentation
+**Phase 2: Public Launch** (Q1 2026)
+- Production deployment
+- Self-hosting documentation
 - Plugin system
 - Community labeler support
 
-**Phase 3: Monetization** (Q4 2026)
+**Phase 3: Monetization** (Q2 2026)
 - Paid managed hosting tiers
 - Admin dashboard enhancements
 - Multi-tenant infrastructure
 
-**Phase 4: Advanced Features** (2027)
+**Phase 4: Advanced Features** (Q2-Q3 2026)
 - Private categories, cross-forum search
 - Advanced moderation tools
 - Mobile apps
 
-**Phase 5: Migration & Growth** (2027+)
+**Phase 5: Migration & Growth** (Q3-Q4 2026)
 - Legacy forum migration tool (Discourse, Flarum, phpBB)
 - Multi-forum management
 - Plugin marketplace
@@ -114,13 +115,13 @@ Traditional forums lock your identity and data into each platform. ATgora uses t
 We're not accepting code contributions yet (pre-alpha), but you can:
 
 - ⭐ **Star the repos** - Show support and get notified of progress
-- 💬 **Join discussions** - Share ideas, ask questions
+- 💬 **Join the community** - ATgora forum launching with Phase 1 (Q1 2026)
 - 📖 **Read the docs** - Learn about AT Protocol and our architecture
 - 🐛 **Report issues** - Found a bug in planning docs? Let us know
 
-**Contributions will open** when we reach Phase 1 MVP.
+**Contributions will open** when we reach Phase 1 MVP (Q1 2026).
 
-See [CONTRIBUTING.md](https://github.com/atgora-forum/.github/blob/main/CONTRIBUTING.md) for guidelines (available when contribution opens).
+See [CONTRIBUTING.md](https://github.com/atgora-forum/.github/blob/main/CONTRIBUTING.md) for guidelines.
 
 ---
 
@@ -153,9 +154,9 @@ See [CONTRIBUTING.md](https://github.com/atgora-forum/.github/blob/main/CONTRIBU
 ## Community
 
 - 🌐 **Website:** [atgora.forum](https://atgora.forum) (coming soon)
-- 💬 **Discussions:** [GitHub Discussions](https://github.com/orgs/atgora-forum/discussions)
+- 💬 **Forum:** [atgora.forum](https://atgora.forum) (launching with Phase 1 - dogfooding our own platform)
 - 🐦 **Bluesky:** [@atgora.forum](https://bsky.app/profile/atgora.forum) (TBD)
-- 📧 **Contact:** hello@atgora.forum (TBD)
+- 📧 **Contact:** [@gxjansen](https://github.com/gxjansen)
 
 ---
 
