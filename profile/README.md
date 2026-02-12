@@ -74,7 +74,7 @@ These are deliberate, documented decisions -- not oversights. Each one has a mig
 | [Bunny.net](https://bunny.net/) | Independent CDN with DDoS protection, transparent pricing, no data monetization |
 | [Valkey](https://valkey.io/) | Truly open-source Redis fork after Redis changed its license |
 | [GlitchTip](https://glitchtip.com/) | Sentry SDK-compatible error tracking, self-hosted on our own infrastructure |
-| [Renovate](https://github.com/renovatebot/renovate) | Open-source dependency updates that work across any platform, not just GitHub |
+| [Dependabot](https://github.com/dependabot) | Built-in dependency updates on GitHub; [Renovate](https://github.com/renovatebot/renovate) as platform-independent upgrade path |
 | [Caddy](https://caddyserver.com/) | Automatic HTTPS, simple config, no manual certificate management |
 | [Umami](https://umami.is/) | Privacy-first web analytics, no cookies, no visitor profiling |
 | [PostHog](https://posthog.com/) | Product analytics for admin operations, self-hosted on our own infrastructure |
