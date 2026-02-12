@@ -19,42 +19,40 @@ ATgora is in **pre-alpha development**. We're building privacy-focused, decentra
 
 ## What is ATgora?
 
-ATgora is a modern forum platform that gives users **portable identity and data ownership**:
+ATgora is a modern forum platform built on the [AT Protocol](https://atproto.com/) -- **the Discourse/Flarum alternative for the decentralized web.**
 
-- **One account, all forums** - Use your AT Protocol identity (Bluesky, etc.) everywhere
-- **Your data, your control** - Content lives on your Personal Data Server, not locked in each forum
-- **Cross-forum reputation** - Your contributions follow you across every ATgora instance
-- **Open source** - AGPL backend, MIT frontend. Self-host or use managed hosting.
-- **Privacy-first** - EU-hosted, GDPR-compliant, no tracking, no ads
+### For Forum Admins
 
-**The Discourse/Flarum alternative for the decentralized web.**
+- **Lower costs** - EUR 19-99/month managed hosting vs Discourse $100+/month
+- **No vendor lock-in** - Self-host anytime, export everything, switch hosting with zero data loss
+- **Frictionless signup** - Users authenticate via OAuth (no email/password management for you)
+- **Built-in spam resistance** - Imported reputation from the AT Protocol network reduces spam from day one
+- **Organic discovery** - Global aggregator surfaces your community to users across the network
+- **EU sovereignty** - GDPR-native, EU-hosted infrastructure
+- **Extensible** - Plugin system for customization without forking the codebase
+- **Open source** - AGPL backend, MIT frontend
+
+### For Forum Users & Participants
+
+- **One identity everywhere** - Your AT Protocol account (Bluesky, etc.) works across all ATgora forums
+- **Portable reputation** - Contributions and trust follow you to every community you join
+- **Cross-post to Bluesky** - Share topics to your Bluesky feed with one click
+- **No content hostage** - Migrate between forums or leave entirely without losing your posts
+- **Privacy by default** - No tracking, no ads, no profiling
 
 ---
 
 ## Why AT Protocol?
 
-Traditional forums lock your identity and data into each platform. The AT Protocol changes this for both the people who run forums and the people who use them.
+Traditional forums lock user identity and data into each platform's database. The [AT Protocol](https://atproto.com/) is an open, decentralized networking protocol that solves this at the infrastructure level:
 
-### For Forum Admins
+- **Portable identity** - Users have a single decentralized identity (DID) that works across any app built on AT Protocol, not just forums
+- **User-owned data** - Content is stored on Personal Data Servers (PDS) controlled by the user, not the application
+- **No platform lock-in** - Because data lives on the PDS, users can switch between apps or self-host without losing anything
+- **Federated moderation** - Labelers provide shared, composable moderation that works across the entire network
+- **Open standard** - Anyone can build on it, inspect it, and extend it -- no proprietary APIs or gatekeepers
 
-- ✅ **Lower costs** - EUR 19-99/month managed hosting vs Discourse $100+/month
-- ✅ **No vendor lock-in** - Self-host anytime, export everything, switch hosting with zero data loss
-- ✅ **Frictionless signup** - Users authenticate via Bluesky OAuth (no email/password management for you)
-- ✅ **Built-in spam resistance** - Imported reputation from the AT Protocol network reduces spam from day one
-- ✅ **Organic discovery** - Global aggregator surfaces your community to users across the network
-- ✅ **EU sovereignty** - GDPR-native, EU-hosted infrastructure, mandatory for regulated industries
-- ✅ **Federated moderation** - AT Protocol labelers provide shared moderation across all forums
-- ✅ **Extensible** - Plugin system for customization without forking the codebase
-
-### For Forum Users & Participants
-
-- ✅ **One identity everywhere** - Your AT Protocol account (Bluesky, etc.) works across all ATgora forums
-- ✅ **You own your data** - Posts live on your Personal Data Server, not locked in each forum's database
-- ✅ **Portable reputation** - Contributions and trust follow you to every community you join
-- ✅ **No account per forum** - One login, all communities
-- ✅ **No content hostage** - Migrate between forums or leave entirely without losing your posts
-- ✅ **Cross-post to Bluesky** - Share topics to your Bluesky feed with one click
-- ✅ **Privacy by default** - No tracking, no ads, no profiling
+ATgora builds on these protocol guarantees to deliver forum-specific features like cross-community reputation, a global aggregator, and social cross-posting that wouldn't be possible on a traditional stack.
 
 ---
 
