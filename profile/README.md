@@ -37,24 +37,24 @@ Traditional forums lock your identity and data into each platform. The AT Protoc
 
 ### For Forum Admins
 
-✅ **Lower costs** - EUR 19-99/month managed hosting vs Discourse $100+/month
-✅ **No vendor lock-in** - Self-host anytime, export everything, switch hosting with zero data loss
-✅ **Frictionless signup** - Users authenticate via Bluesky OAuth (no email/password management for you)
-✅ **Built-in spam resistance** - Imported reputation from the AT Protocol network reduces spam from day one
-✅ **Organic discovery** - Global aggregator surfaces your community to users across the network
-✅ **EU sovereignty** - GDPR-native, EU-hosted infrastructure, mandatory for regulated industries
-✅ **Federated moderation** - AT Protocol labelers provide shared moderation across all forums
-✅ **Extensible** - Plugin system for customization without forking the codebase
+- ✅ **Lower costs** - EUR 19-99/month managed hosting vs Discourse $100+/month
+- ✅ **No vendor lock-in** - Self-host anytime, export everything, switch hosting with zero data loss
+- ✅ **Frictionless signup** - Users authenticate via Bluesky OAuth (no email/password management for you)
+- ✅ **Built-in spam resistance** - Imported reputation from the AT Protocol network reduces spam from day one
+- ✅ **Organic discovery** - Global aggregator surfaces your community to users across the network
+- ✅ **EU sovereignty** - GDPR-native, EU-hosted infrastructure, mandatory for regulated industries
+- ✅ **Federated moderation** - AT Protocol labelers provide shared moderation across all forums
+- ✅ **Extensible** - Plugin system for customization without forking the codebase
 
 ### For Forum Users & Participants
 
-✅ **One identity everywhere** - Your AT Protocol account (Bluesky, etc.) works across all ATgora forums
-✅ **You own your data** - Posts live on your Personal Data Server, not locked in each forum's database
-✅ **Portable reputation** - Contributions and trust follow you to every community you join
-✅ **No account per forum** - One login, all communities
-✅ **No content hostage** - Migrate between forums or leave entirely without losing your posts
-✅ **Cross-post to Bluesky** - Share topics to your Bluesky feed with one click
-✅ **Privacy by default** - No tracking, no ads, no profiling
+- ✅ **One identity everywhere** - Your AT Protocol account (Bluesky, etc.) works across all ATgora forums
+- ✅ **You own your data** - Posts live on your Personal Data Server, not locked in each forum's database
+- ✅ **Portable reputation** - Contributions and trust follow you to every community you join
+- ✅ **No account per forum** - One login, all communities
+- ✅ **No content hostage** - Migrate between forums or leave entirely without losing your posts
+- ✅ **Cross-post to Bluesky** - Share topics to your Bluesky feed with one click
+- ✅ **Privacy by default** - No tracking, no ads, no profiling
 
 ---
 
