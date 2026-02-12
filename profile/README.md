@@ -11,9 +11,9 @@ ATgora is in **pre-alpha development**. We're building privacy-focused, decentra
 
 **Current Status:** Planning complete, MVP implementation starting Q1 2026
 
-📅 **Next Milestone:** Phase 1 MVP (Q1 2026)  
-🌐 **Website:** [atgora.forum](https://atgora.forum) (coming soon)  
-💬 **Community:** ATgora forum (dogfooding - launching with Phase 1)
+📅 **Next Milestone:** Phase 0 Workspace Setup
+🌐 **Website:** [atgora.forum](https://atgora.forum) (coming soon)
+💬 **Community:** ATgora forum (dogfooding - launching with MVP)
 
 ---
 
@@ -33,13 +33,28 @@ ATgora is a modern forum platform that gives users **portable identity and data 
 
 ## Why AT Protocol?
 
-Traditional forums lock your identity and data into each platform. ATgora uses the AT Protocol to give you:
+Traditional forums lock your identity and data into each platform. The AT Protocol changes this for both the people who run forums and the people who use them.
 
-✅ **Portable identity** - One login across all ATgora forums  
-✅ **Data ownership** - Your posts live on your PDS, not the forum's database  
-✅ **Cross-forum features** - Reputation, search, aggregation across instances  
-✅ **No vendor lock-in** - Migrate forums without losing users or content  
-✅ **Federated moderation** - AT Protocol labelers work across all forums
+### For Forum Admins
+
+✅ **Lower costs** - EUR 19-99/month managed hosting vs Discourse $100+/month
+✅ **No vendor lock-in** - Self-host anytime, export everything, switch hosting with zero data loss
+✅ **Frictionless signup** - Users authenticate via Bluesky OAuth (no email/password management for you)
+✅ **Built-in spam resistance** - Imported reputation from the AT Protocol network reduces spam from day one
+✅ **Organic discovery** - Global aggregator surfaces your community to users across the network
+✅ **EU sovereignty** - GDPR-native, EU-hosted infrastructure, mandatory for regulated industries
+✅ **Federated moderation** - AT Protocol labelers provide shared moderation across all forums
+✅ **Extensible** - Plugin system for customization without forking the codebase
+
+### For Forum Users & Participants
+
+✅ **One identity everywhere** - Your AT Protocol account (Bluesky, etc.) works across all ATgora forums
+✅ **You own your data** - Posts live on your Personal Data Server, not locked in each forum's database
+✅ **Portable reputation** - Contributions and trust follow you to every community you join
+✅ **No account per forum** - One login, all communities
+✅ **No content hostage** - Migrate between forums or leave entirely without losing your posts
+✅ **Cross-post to Bluesky** - Share topics to your Bluesky feed with one click
+✅ **Privacy by default** - No tracking, no ads, no profiling
 
 ---
 
@@ -59,8 +74,8 @@ Traditional forums lock your identity and data into each platform. ATgora uses t
 
 **Core forum functionality:**
 - Topics, replies, categories, reactions
-- Markdown editor, search (full-text + semantic)
-- Moderation tools, content maturity filtering
+- Markdown editor, search (full-text + optional semantic)
+- Moderation tools, content reporting, self-labels
 - Notifications, user profiles
 
 **AT Protocol differentiators:**
@@ -72,39 +87,35 @@ Traditional forums lock your identity and data into each platform. ATgora uses t
 
 **Self-hosting & extensibility:**
 - Docker Compose deployment
-- Plugin system (Phase 2+)
+- Plugin system (core plugins in MVP, community plugins Phase 2+)
 - API-first architecture (build custom frontends)
 
 ---
 
 ## Roadmap
 
-**Phase 1: MVP** (Q1 2026)
-- Core forum features + AT Protocol integration
-- Central managed hosting
-- Staging environment deployment
-- Global aggregator at atgora.forum
+### MVP Development (2026)
 
-**Phase 2: Public Launch** (Q1 2026)
-- Production deployment
-- Self-hosting documentation
-- Plugin system
-- Community labeler support
+| Phase | Focus | What Gets Built |
+|-------|-------|-----------------|
+| **0: Workspace Setup** | Dev infrastructure | Shared configs (TypeScript, ESLint, Vitest, commitlint), Docker dev environment, CI templates, pnpm workspace |
+| **1: Risk Validation** | Prove it works | AT Protocol integration PoC -- Tap firehose, OAuth flow, PDS record writes, Drizzle+pgvector, Next.js 16+shadcn/ui |
+| **2: Lexicons** | Define the data | `forum.atgora.*` lexicon schemas, generated TypeScript types, Zod validation, npm package (`@atgora-forum/lexicons`) |
+| **3: API** | Build the backend | Fastify AppView with 13 milestones: firehose indexing, OAuth auth, topics, replies, categories, reactions, moderation, search, notifications, profiles, cross-posting, admin, setup wizard |
+| **4: Frontend** | Build the UI | Next.js frontend with 13 milestones: design system, auth flow, homepage, topic pages, editor, reactions, profiles, search, notifications, admin panel, SEO, accessibility audit (WCAG 2.2 AA) |
+| **5: Deploy** | Ship it | Production Docker Compose, Caddy reverse proxy + auto-SSL, global aggregator config, installation docs, backup/restore scripts |
 
-**Phase 3: Monetization** (Q2 2026)
-- Paid managed hosting tiers
-- Admin dashboard enhancements
-- Multi-tenant infrastructure
+A professional security audit is scheduled after Phase 3 (API complete), with remediation time before frontend polish.
 
-**Phase 4: Advanced Features** (Q2-Q3 2026)
-- Private categories, cross-forum search
-- Advanced moderation tools
-- Mobile apps
+### Post-MVP
 
-**Phase 5: Migration & Growth** (Q3-Q4 2026)
-- Legacy forum migration tool (Discourse, Flarum, phpBB)
-- Multi-forum management
-- Plugin marketplace
+| Phase | Focus | What Gets Built |
+|-------|-------|-----------------|
+| **Self-Hosting + AI** | Empower self-hosters | Self-hosting documentation, AI moderation, summarization, translation, labeler integration, plugin sandbox |
+| **Monetization + SaaS** | Sustainable business | Managed hosting tiers (Stripe billing), multi-tenant infrastructure, managed AI tier, PWA (push notifications, offline) |
+| **Advanced Features** | Depth | Private categories, DMs, cross-community search, solved markers, plugin marketplace, cross-instance plugin discovery |
+| **Migration & Growth** | Reach | Legacy forum migration tool (Discourse, Flarum, phpBB), multi-community management dashboard, federation tools |
+| **Try-Then-Own** | Growth loop | Sandbox experience, free tier (50 active users), upgrade flow, conversion tracking |
 
 ---
 
@@ -113,11 +124,11 @@ Traditional forums lock your identity and data into each platform. ATgora uses t
 We're not accepting code contributions yet (pre-alpha), but you can:
 
 - ⭐ **Star the repos** - Show support and get notified of progress
-- 💬 **Join the community** - ATgora forum launching with Phase 1 (Q1 2026)
+- 💬 **Join the community** - ATgora forum launching with MVP
 - 📖 **Read the docs** - Learn about AT Protocol and our architecture
 - 🐛 **Report issues** - Found a bug in planning docs? Let us know
 
-**Contributions will open** when we reach Phase 1 MVP (Q1 2026).
+**Contributions will open** when we reach MVP.
 
 See [CONTRIBUTING.md](https://github.com/atgora-forum/.github/blob/main/CONTRIBUTING.md) for guidelines.
 
@@ -131,8 +142,9 @@ See [CONTRIBUTING.md](https://github.com/atgora-forum/.github/blob/main/CONTRIBU
 | Backend | Fastify, Drizzle ORM, PostgreSQL 16, Valkey |
 | Frontend | Next.js 16, React 19, TailwindCSS, shadcn/ui |
 | Protocol | AT Protocol SDK (@atproto/api, @atproto/tap) |
+| Search | Full-text (PostgreSQL) + optional semantic (pgvector) |
 | Hosting | Docker Compose, Hetzner VPS, Cloudflare CDN |
-| Monitoring | Sentry, Pino, Grafana (Phase 3) |
+| Monitoring | Sentry (EU), Pino, Grafana (post-MVP) |
 
 ---
 
@@ -152,7 +164,7 @@ See [CONTRIBUTING.md](https://github.com/atgora-forum/.github/blob/main/CONTRIBU
 ## Community
 
 - 🌐 **Website:** [atgora.forum](https://atgora.forum) (coming soon)
-- 💬 **Forum:** [atgora.forum](https://atgora.forum) (launching with Phase 1 - dogfooding our own platform)
+- 💬 **Forum:** [atgora.forum](https://atgora.forum) (launching with MVP - dogfooding our own platform)
 - 🐦 **Bluesky:** [@atgora.forum](https://bsky.app/profile/atgora.forum) (TBD)
 - 📧 **Contact:** [@gxjansen](https://github.com/gxjansen)
 
