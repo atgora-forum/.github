@@ -42,6 +42,60 @@ ATgora is a modern forum platform built on the [AT Protocol](https://atproto.com
 
 ---
 
+## Our Principles
+
+ATgora is built on intentional choices about where code runs, what we depend on, and who controls the infrastructure.
+
+### Sovereignty through choice
+
+We believe communities should control their own infrastructure, data, and identity. That means choosing services and tools that respect that control:
+
+- **Privacy and GDPR-respecting infrastructure** for processing user data (Hetzner, Bunny.net, Mollie)
+- **Open-source tools** that we can self-host, inspect, and replace (Valkey, GlitchTip, Caddy, Renovate, Umami, PostHog)
+- **Open standards** that prevent lock-in (AT Protocol, Docker Compose, PostgreSQL)
+
+We prefer service providers that treat your data as yours -- not as a product to monetize, train models on, or hand over without due process. Strong data protection law (like GDPR) is one signal we look for, but what matters most is the practical ability to move when needed.
+
+### Practical choices, honest trade-offs
+
+Building a project from scratch sometimes means using the best available tool today while planning for a better fit tomorrow. We're transparent about these trade-offs:
+
+**GitHub** hosts our repositories and CI/CD. The AT Protocol developer ecosystem lives on GitHub, and discoverability matters for an open-source project finding its first contributors. [Codeberg](https://codeberg.org/) (Germany) and [Forgejo Actions](https://forgejo.org/) are maturing rapidly. As they reach production readiness, we plan to evaluate migration -- our CI pipelines use standard workflows that transfer with minimal changes.
+
+**Stripe** handles billing and EU VAT calculation across 27 member states. No privacy-focused alternative currently matches its VAT automation without adding extra dependencies. Our billing integration is abstracted behind an interface from day one, so switching to [Mollie](https://www.mollie.com/) (Amsterdam) is a refactor, not a rewrite. New customers could move to Mollie first, with existing customers migrating gradually.
+
+These are deliberate, documented decisions -- not oversights. Each one has a migration path, and we revisit them as the project and the ecosystem evolve.
+
+### What we chose and why
+
+| We use | Why this one |
+|--------|-------------|
+| [Hetzner](https://www.hetzner.com/) | Privacy-respecting hosting under strong data protection law, excellent price/performance |
+| [Bunny.net](https://bunny.net/) | Independent CDN with DDoS protection, transparent pricing, no data monetization |
+| [Valkey](https://valkey.io/) | Truly open-source Redis fork after Redis changed its license |
+| [GlitchTip](https://glitchtip.com/) | Sentry SDK-compatible error tracking, self-hosted on our own infrastructure |
+| [Renovate](https://github.com/renovatebot/renovate) | Open-source dependency updates that work across any platform, not just GitHub |
+| [Caddy](https://caddyserver.com/) | Automatic HTTPS, simple config, no manual certificate management |
+| [Umami](https://umami.is/) | Privacy-first web analytics, no cookies, no visitor profiling |
+| [PostHog](https://posthog.com/) | Product analytics for admin operations, self-hosted on our own infrastructure |
+| [PostgreSQL](https://www.postgresql.org/) | Industry-standard database we can run anywhere |
+
+### No tracking, no ads, no profiling
+
+ATgora does not track forum visitors. No analytics cookies, no fingerprinting, no behavioral profiling. Community usage statistics come from the database, not from surveillance tooling.
+
+Admin-facing analytics for our own SaaS operations use self-hosted, privacy-respecting tools. End-user data never enters analytics pipelines.
+
+### Self-hosting is always an option
+
+Managed hosting is our business model, but self-hosting is a first-class deployment target. The same Docker Compose templates power our SaaS infrastructure and your self-hosted instance. We will never make self-hosting artificially harder to push paid plans.
+
+### Data sovereignty by architecture
+
+User content lives on their Personal Data Server (PDS), not our database. Our AppView is an index -- delete your content and it's gone from our systems. Migrate your community and users keep their identity and post history. This isn't a policy promise; it's how AT Protocol works at the infrastructure level.
+
+---
+
 ## Why AT Protocol?
 
 Traditional forums lock user identity and data into each platform's database. The [AT Protocol](https://atproto.com/) is an open, decentralized networking protocol that solves this at the infrastructure level:
@@ -141,8 +195,9 @@ See [CONTRIBUTING.md](https://github.com/atgora-forum/.github/blob/main/CONTRIBU
 | Frontend | Next.js 16, React 19, TailwindCSS, shadcn/ui |
 | Protocol | AT Protocol SDK (@atproto/api, @atproto/tap) |
 | Search | Full-text (PostgreSQL) + optional semantic (pgvector) |
-| Hosting | Docker Compose, Hetzner VPS, Cloudflare CDN |
-| Monitoring | Sentry (EU), Pino, Grafana (post-MVP) |
+| Hosting | Docker Compose, Hetzner VPS, Bunny.net CDN |
+| Monitoring | GlitchTip (self-hosted), Pino, Grafana (post-MVP) |
+| Analytics | Umami (web, self-hosted), PostHog (admin, self-hosted) |
 
 ---
 
