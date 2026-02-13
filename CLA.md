@@ -1,6 +1,6 @@
-# ATgora Contributor License Agreement
+# Barazo Contributor License Agreement
 
-Thank you for your interest in contributing to ATgora ("We" or "Us").
+Thank you for your interest in contributing to Barazo ("We" or "Us").
 
 This Contributor License Agreement ("Agreement") documents the rights granted by contributors to Us.
 

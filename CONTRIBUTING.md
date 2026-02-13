@@ -1,6 +1,6 @@
-# Contributing to ATgora
+# Contributing to Barazo
 
-Thank you for your interest in contributing to ATgora! This document explains our development process and how to get your contributions merged.
+Thank you for your interest in contributing to Barazo! This document explains our development process and how to get your contributions merged.
 
 ## Code of Conduct
 
@@ -23,12 +23,12 @@ Be respectful, constructive, and collaborative. We're building privacy-focused, 
    # Click "Fork" on GitHub, then:
    git clone https://github.com/YOUR_USERNAME/REPO_NAME.git
    cd REPO_NAME
-   git remote add upstream https://github.com/atgora-forum/REPO_NAME.git
+   git remote add upstream https://github.com/barazo-forum/REPO_NAME.git
    ```
 
 2. **Clone directly** (if team member)
    ```bash
-   git clone https://github.com/atgora-forum/REPO_NAME.git
+   git clone https://github.com/barazo-forum/REPO_NAME.git
    cd REPO_NAME
    ```
 
@@ -293,7 +293,7 @@ pnpm test  # Verify nothing broke
 **Stuck? Ask for help:**
 - **GitHub Discussions** - Questions, ideas, general discussion
 - **GitHub Issues** - Bug reports, feature requests
-- **AT Protocol Discord** - `#atgora` channel (join: [link])
+- **AT Protocol Discord** - `#barazo` channel (join: [link])
 - **Email** - [maintainer email TBD]
 
 ## Recognition
@@ -306,13 +306,13 @@ Contributors are listed in:
 ## License
 
 By contributing, you agree that your contributions will be licensed under:
-- **atgora-api** - AGPL-3.0
-- **atgora-web** - MIT
-- **atgora-lexicons** - MIT
-- **atgora-deploy** - MIT
+- **barazo-api** - AGPL-3.0
+- **barazo-web** - MIT
+- **barazo-lexicons** - MIT
+- **barazo-deploy** - MIT
 
 See LICENSE file in each repo for details.
 
 ---
 
-**Thank you for contributing to ATgora!** Every contribution, no matter how small, helps build a better decentralized forum platform.
+**Thank you for contributing to Barazo!** Every contribution, no matter how small, helps build a better decentralized forum platform.
