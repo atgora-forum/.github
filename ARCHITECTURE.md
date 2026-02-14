@@ -18,7 +18,7 @@ graph TB
 
     %% ── Edge Layer ──
     subgraph edge ["Reverse Proxy"]
-        Caddy["Caddy<br/>(SSL, routing)"]:::proxy
+        Caddy["Caddy (SSL, routing)"]:::proxy
     end
 
     Browser -->|"HTTPS"| Caddy
@@ -26,19 +26,19 @@ graph TB
     %% ── Application Layer ──
     subgraph app ["Application Layer"]
         direction LR
-        Web["barazo-web<br/>(Next.js / React)<br/>SSR, SEO, a11y"]:::frontend
-        API["barazo-api<br/>(Fastify)<br/>REST API, Auth,<br/>Plugin System"]:::backend
+        Web["barazo-web<br/>Next.js / React<br/>SSR, SEO, a11y"]:::frontend
+        API["barazo-api<br/>Fastify REST API<br/>Auth, Plugin System"]:::backend
     end
 
     Caddy -->|"/*"| Web
-    Caddy -->|"/api/*<br/>/docs"| API
-    Web -->|"REST API calls<br/>(server & client)"| API
+    Caddy -->|"/api/*, /docs"| API
+    Web -->|"REST API calls"| API
 
     %% ── Data Layer ──
     subgraph data ["Data Layer"]
         direction LR
-        PG["PostgreSQL 16<br/>+ pgvector<br/>(Forum Index,<br/>Full-text & Semantic Search)"]:::datastore
-        VK["Valkey<br/>(Session Cache,<br/>Query Cache,<br/>Rate Limiting)"]:::datastore
+        PG["PostgreSQL 16 + pgvector<br/>Forum Index, Full-text &<br/>Semantic Search"]:::datastore
+        VK["Valkey<br/>Session Cache, Query Cache,<br/>Rate Limiting"]:::datastore
     end
 
     API --> PG
@@ -47,29 +47,29 @@ graph TB
     %% ── AT Protocol Layer ──
     subgraph atp ["AT Protocol Network"]
         direction LR
-        Relay["Bluesky Relay<br/>(bsky.network)<br/>Full Firehose"]:::atproto
-        PDS["User PDS<br/>(Bluesky, self-hosted,<br/>or other providers)<br/>Source of Truth"]:::atproto
+        Relay["Bluesky Relay<br/>bsky.network"]:::atproto
+        PDS["User PDS<br/>Source of Truth"]:::atproto
     end
 
     subgraph firehose ["Firehose Consumer"]
-        Tap["Tap<br/>(@atproto/tap)<br/>Filters for<br/>forum.barazo.*"]:::backend
+        Tap["Tap (@atproto/tap)<br/>Filters for forum.barazo.*"]:::backend
     end
 
-    Relay -->|"WebSocket<br/>(filtered subscription)"| Tap
-    Tap -->|"Validated records<br/>(create/update/delete)"| API
-    API -->|"OAuth (DPoP)<br/>Read/Write records"| PDS
+    Relay -->|"WebSocket"| Tap
+    Tap -->|"Validated records"| API
+    API -->|"OAuth (DPoP)"| PDS
 
     %% ── External Integrations ──
     subgraph ext ["External Services"]
         direction LR
-        GT["GlitchTip<br/>(Error Tracking)"]:::external
-        UM["Umami<br/>(Analytics)"]:::external
-        AI["AI Provider<br/>(Ollama / OpenRouter /<br/>OpenAI / Anthropic)<br/>Optional"]:::external
+        GT["GlitchTip (Error Tracking)"]:::external
+        UM["Umami (Analytics)"]:::external
+        AI["AI Provider (Optional)<br/>Ollama / OpenRouter / OpenAI"]:::external
     end
 
     API -.->|"Sentry SDK"| GT
     Web -.->|"Script tag"| UM
-    API -.->|"Embeddings,<br/>Moderation"| AI
+    API -.->|"Embeddings, Moderation"| AI
 ```
 
 ## Data Flow
@@ -113,15 +113,15 @@ graph TB
     subgraph docker ["Docker Compose"]
 
         subgraph fn ["Frontend Network"]
-            C["Caddy<br/>:80 :443"]:::container
-            W["barazo-web<br/>:3000"]:::container
-            A1["barazo-api<br/>:3001"]:::container
+            C["Caddy :80 :443"]:::container
+            W["barazo-web :3000"]:::container
+            A1["barazo-api :3001"]:::container
         end
 
         subgraph bn ["Backend Network"]
-            A2["barazo-api<br/>(bridged)"]:::container
-            P["PostgreSQL<br/>:5432"]:::container
-            V["Valkey<br/>:6379"]:::container
+            A2["barazo-api (bridged)"]:::container
+            P["PostgreSQL :5432"]:::container
+            V["Valkey :6379"]:::container
         end
 
         A1 ~~~ A2
@@ -139,9 +139,9 @@ graph TB
     C --- CD
     A1 --- PL
 
-    Internet(("Internet<br/>(port 80/443 only)")) --> C
+    Internet(("Internet (port 80/443 only)")) --> C
 
-    note1["Only Caddy is<br/>externally exposed"]
+    note1["Only Caddy is externally exposed"]
 ```
 
 ## Operating Modes
@@ -153,22 +153,22 @@ graph LR
     classDef relay fill:#9b5de5,stroke:#7b2cbf,color:#fff
 
     subgraph single_mode ["Single-Community Mode"]
-        S_API["barazo-api<br/>(filters by<br/>community DID)"]:::single
-        S_DB["PostgreSQL<br/>(one community)"]:::single
+        S_API["barazo-api<br/>filters by community DID"]:::single
+        S_DB["PostgreSQL (one community)"]:::single
         S_API --> S_DB
     end
 
     subgraph global_mode ["Global Aggregator Mode"]
-        G_API["barazo-api<br/>(indexes ALL<br/>forum.barazo.*)"]:::global
-        G_DB["PostgreSQL<br/>(all communities)"]:::global
+        G_API["barazo-api<br/>indexes ALL forum.barazo.*"]:::global
+        G_DB["PostgreSQL (all communities)"]:::global
         G_API --> G_DB
     end
 
-    Relay["AT Protocol<br/>Relay"]:::relay
+    Relay["AT Protocol Relay"]:::relay
     Relay --> S_API
     Relay --> G_API
 
-    note2["Same codebase,<br/>different config:<br/>COMMUNITY_MODE=single<br/>vs<br/>COMMUNITY_MODE=global"]
+    note2["Same codebase, different config:<br/>COMMUNITY_MODE=single vs global"]
 ```
 
 ## Hosting Tiers
