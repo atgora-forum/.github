@@ -4,7 +4,7 @@ Thank you for your interest in contributing to Barazo! This document explains ou
 
 ## Code of Conduct
 
-Be respectful, constructive, and collaborative. We're building privacy-focused, open-source forum software for the decentralized web. Everyone is welcome.
+This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md). By participating, you agree to uphold it. Report unacceptable behavior to conduct@barazo.forum.
 
 ## Getting Started
 

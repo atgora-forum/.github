@@ -1,0 +1,39 @@
+name: Question
+description: Ask a question about Barazo, self-hosting, or the AT Protocol integration
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a question? Ask away. For general discussion, you can also use [GitHub Discussions](https://github.com/orgs/barazo-forum/discussions).
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+      description: What would you like to know?
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Any relevant context (what you're trying to do, what you've already tried).
+    validations:
+      required: false
+
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Topic area
+      options:
+        - Self-hosting / deployment
+        - AT Protocol / federation
+        - API usage
+        - Frontend / theming
+        - Moderation / admin
+        - Contributing / development
+        - Other
+    validations:
+      required: false
