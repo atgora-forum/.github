@@ -123,6 +123,12 @@ See [CONTRIBUTING.md](https://github.com/barazo-forum/.github/blob/main/CONTRIBU
 
 ---
 
+## Architecture
+
+See **[ARCHITECTURE.md](https://github.com/barazo-forum/.github/blob/main/ARCHITECTURE.md)** for the full system architecture, including data flow diagrams, deployment layout, and operating modes.
+
+---
+
 ## Tech Stack
 
 | Component | Technology |
