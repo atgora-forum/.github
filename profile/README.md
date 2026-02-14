@@ -5,15 +5,15 @@
 
 ---
 
-## Under Active Development
+## Status: Alpha
 
-Barazo is in **pre-alpha development**. We're building privacy-focused, decentralized forum software on the [AT Protocol](https://atproto.com/).
+Barazo is in **active alpha development**. Core MVP is implemented with 885 API tests and 356 frontend tests passing.
 
-**Current Status:** Planning complete, MVP implementation starting Q1 2026
+**Current Phase:** P2 -- User Experience + Global Aggregator (P2.1 and P2.2 complete)
 
-**Next Milestone:** Phase 1 MVP (Q1 2026)
+**Next Milestone:** P2.3 -- Age Declaration Revision + Community Onboarding Fields
+
 **Website:** [barazo.forum](https://barazo.forum) (coming soon)
-**Community:** Barazo forum (dogfooding - launching with Phase 1)
 
 ---
 
@@ -21,11 +21,11 @@ Barazo is in **pre-alpha development**. We're building privacy-focused, decentra
 
 Barazo is a modern forum platform that gives users **portable identity and data ownership**:
 
-- **One account, all forums** - Use your AT Protocol identity (Bluesky, etc.) everywhere
-- **Your data, your control** - Content lives on your Personal Data Server, not locked in each forum
-- **Cross-forum reputation** - Your contributions follow you across every Barazo instance
-- **Open source** - AGPL backend, MIT frontend. Self-host or use managed hosting.
-- **Privacy-first** - EU-hosted, GDPR-compliant, no tracking, no ads
+- **One account, all forums** -- Use your AT Protocol identity (Bluesky, etc.) everywhere
+- **Your data, your control** -- Content lives on your Personal Data Server, not locked in each forum
+- **Cross-forum reputation** -- Your contributions follow you across every Barazo instance
+- **Open source** -- AGPL backend, MIT frontend. Self-host or use managed hosting.
+- **Privacy-first** -- EU-hosted, GDPR-compliant, no tracking, no ads
 
 **The Discourse/Flarum alternative for the decentralized web.**
 
@@ -35,11 +35,11 @@ Barazo is a modern forum platform that gives users **portable identity and data 
 
 Traditional forums lock your identity and data into each platform. Barazo uses the AT Protocol to give you:
 
-- **Portable identity** - One login across all Barazo forums
-- **Data ownership** - Your posts live on your PDS, not the forum's database
-- **Cross-forum features** - Reputation, search, aggregation across instances
-- **No vendor lock-in** - Migrate forums without losing users or content
-- **Federated moderation** - AT Protocol labelers work across all forums
+- **Portable identity** -- One login across all Barazo forums
+- **Data ownership** -- Your posts live on your PDS, not the forum's database
+- **Cross-forum features** -- Reputation, search, aggregation across instances
+- **No vendor lock-in** -- Migrate forums without losing users or content
+- **Federated moderation** -- AT Protocol labelers work across all forums
 
 ---
 
@@ -47,79 +47,94 @@ Traditional forums lock your identity and data into each platform. Barazo uses t
 
 | Repository | Description | License | Status |
 |------------|-------------|---------|--------|
-| **[barazo-api](https://github.com/barazo-forum/barazo-api)** | AppView backend (Fastify, PostgreSQL, AT Protocol) | AGPL-3.0 | Pre-alpha |
-| **[barazo-web](https://github.com/barazo-forum/barazo-web)** | Forum frontend (Next.js, TailwindCSS) | MIT | Pre-alpha |
-| **[barazo-lexicons](https://github.com/barazo-forum/barazo-lexicons)** | AT Protocol schemas for forum data | MIT | Pre-alpha |
-| **[barazo-deploy](https://github.com/barazo-forum/barazo-deploy)** | Docker Compose templates for self-hosting | MIT | Pre-alpha |
+| **[barazo-api](https://github.com/barazo-forum/barazo-api)** | AppView backend (Fastify, PostgreSQL, AT Protocol) | AGPL-3.0 | Alpha |
+| **[barazo-web](https://github.com/barazo-forum/barazo-web)** | Forum frontend (Next.js, TailwindCSS) | MIT | Alpha |
+| **[barazo-lexicons](https://github.com/barazo-forum/barazo-lexicons)** | AT Protocol schemas for forum data | MIT | Alpha |
+| **[barazo-deploy](https://github.com/barazo-forum/barazo-deploy)** | Docker Compose templates for self-hosting | MIT | Alpha |
 | **[barazo-website](https://github.com/barazo-forum/barazo-website)** | Marketing + documentation site | MIT | Planned |
 
 ---
 
-## Features (Planned MVP)
+## Implemented Features
 
-**Core forum functionality:**
-- Topics, replies, categories, reactions
-- Markdown editor, search (full-text + semantic)
-- Moderation tools, content maturity filtering
-- Notifications, user profiles
+**Core forum:**
+- Topics, replies (threaded), categories, reactions (configurable per forum)
+- Markdown editor and rendering (sanitized)
+- Full-text search (PostgreSQL tsvector + GIN)
+- Content maturity filtering (SFW/Mature/Adult at forum + category level)
+- Moderation tools (lock, pin, delete, ban, content reporting, word/link blocklists)
+- Notifications (in-app + email)
+- User profiles with PDS sync, user preferences (global + per-community)
+- Self-labels on posts (AT Protocol selfLabels)
+- Age gate (self-declaration), block/mute users (portable via PDS)
 
-**AT Protocol differentiators:**
-- Portable identity (OAuth with any AT Protocol PDS)
-- Cross-forum reputation
-- Global aggregator (all Barazo forums in one feed)
-- Social cross-posting (share topics to Bluesky/Frontpage)
-- Content labeler integration
+**AT Protocol integration:**
+- OAuth sign-in with any AT Protocol PDS (Bluesky, self-hosted, etc.)
+- Firehose subscription via Tap (filtered for `forum.barazo.*`)
+- Cross-posting to Bluesky (default ON, toggleable) and Frontpage (feature flag)
+- Rich OpenGraph images for cross-posts with forum branding
+- Global aggregator mode (cross-community feed with maturity filtering)
+- Cross-community reputation (activity counts across forums)
 
-**Self-hosting & extensibility:**
-- Docker Compose deployment
-- Plugin system (Phase 2+)
-- API-first architecture (build custom frontends)
+**Infrastructure:**
+- Docker Compose deployment (dev, production, global aggregator profiles)
+- Caddy reverse proxy with automatic SSL
+- CI/CD with GitHub Actions (lint, typecheck, tests, a11y audit, CodeQL)
+- Dependabot security monitoring, backup/restore scripts
+
+**Quality:**
+- 885 API tests across 56 test files
+- 356 frontend tests across 47 test files
+- WCAG 2.2 AA accessibility compliance (vitest-axe + @axe-core/playwright)
+- Strict TypeScript (no `any`, no `@ts-ignore`)
+
+---
+
+## Planned Features
+
+- Community onboarding fields (admin-configurable, P2.3)
+- Stripe billing / SaaS multi-tenant / custom domains (P3)
+- Plugin system with admin UI (P3)
+- AI features: semantic search, AI moderation, summarization, translation (P4)
+- Private categories, AT Protocol labeler integration (P4)
+- Legacy forum migration tools (Discourse, Flarum, phpBB) (P5)
+- Marketing website, PWA (P5)
 
 ---
 
 ## Roadmap
 
-**Phase 1: MVP** (Q1 2026)
-- Core forum features + AT Protocol integration
-- Central managed hosting
-- Staging environment deployment
-- Global aggregator at barazo.forum
+**Phase 1: Core MVP** -- Done
+- Auth, topics, replies, categories, search, moderation, reactions
+- Cross-posting (Bluesky + Frontpage), notifications, user profiles
+- Frontend (19 pages, 26 components), Docker Compose deployment
 
-**Phase 2: Public Launch** (Q1 2026)
-- Production deployment
-- Self-hosting documentation
-- Plugin system
-- Community labeler support
+**Phase 2: User Experience + Global** -- In Progress
+- P2.1: Content maturity, self-labels, age gate, user preferences -- Done
+- P2.2: Global aggregator, cross-community reputation, block/mute -- Done
+- P2.3: Age declaration revision, community onboarding fields -- Pending
 
-**Phase 3: Monetization** (Q2 2026)
-- Paid managed hosting tiers
-- Admin dashboard enhancements
-- Multi-tenant infrastructure
+**Phase 3: SaaS Infrastructure**
+- Stripe billing, multi-tenant support, custom domain automation
+- Plugin system (core plugins + admin UI)
+- GlitchTip error monitoring
 
-**Phase 4: Advanced Features** (Q2-Q3 2026)
-- Private categories, cross-forum search
-- Advanced moderation tools
-- Mobile apps
+**Phase 4: AI Features**
+- Semantic search (pgvector hybrid ranking)
+- AI-assisted moderation, topic summarization, translation
+- AT Protocol labeler integration, private categories
 
-**Phase 5: Migration & Growth** (Q3-Q4 2026)
-- Legacy forum migration tool (Discourse, Flarum, phpBB)
-- Multi-forum management
-- Plugin marketplace
+**Phase 5: Migration and Launch**
+- Legacy forum migration tools, marketing site
+- Security audit, WCAG 2.2 AA audit, PWA
 
 ---
 
 ## Contributing
 
-We're not accepting code contributions yet (pre-alpha), but you can:
+Contributions are welcome. See [CONTRIBUTING.md](https://github.com/barazo-forum/.github/blob/main/CONTRIBUTING.md) for guidelines.
 
-- **Star the repos** - Show support and get notified of progress
-- **Join the community** - Barazo forum launching with Phase 1 (Q1 2026)
-- **Read the docs** - Learn about AT Protocol and our architecture
-- **Report issues** - Found a bug in planning docs? Let us know
-
-**Contributions will open** when we reach Phase 1 MVP (Q1 2026).
-
-See [CONTRIBUTING.md](https://github.com/barazo-forum/.github/blob/main/CONTRIBUTING.md) for guidelines.
+Contributors sign a CLA to allow future commercial licensing flexibility.
 
 ---
 
@@ -146,10 +161,10 @@ See **[ARCHITECTURE.md](https://github.com/barazo-forum/.github/blob/main/ARCHIT
 
 **Dual-licensed for openness and sustainability:**
 
-- **Backend (barazo-api):** AGPL-3.0 - Protects the core, competitors must share changes
-- **Frontend (barazo-web):** MIT - Encourages customization and theming
-- **Lexicons (barazo-lexicons):** MIT - Open standard, maximum adoption
-- **Deploy (barazo-deploy):** MIT - Self-hosting should be freely usable
+- **Backend (barazo-api):** AGPL-3.0 -- Protects the core, competitors must share changes
+- **Frontend (barazo-web):** MIT -- Encourages customization and theming
+- **Lexicons (barazo-lexicons):** MIT -- Open standard, maximum adoption
+- **Deploy (barazo-deploy):** MIT -- Self-hosting should be freely usable
 
 **Contributors sign a CLA** to allow future commercial licensing flexibility.
 
@@ -158,8 +173,8 @@ See **[ARCHITECTURE.md](https://github.com/barazo-forum/.github/blob/main/ARCHIT
 ## Community
 
 - **Website:** [barazo.forum](https://barazo.forum) (coming soon)
-- **Forum:** [barazo.forum](https://barazo.forum) (launching with Phase 1 - dogfooding our own platform)
-- **Bluesky:** [@barazo.forum](https://bsky.app/profile/barazo.forum) (TBD)
+- **Forum:** [barazo.forum](https://barazo.forum) (launching with beta -- dogfooding our own platform)
+- **Bluesky:** [@barazo.forum](https://bsky.app/profile/barazo.forum)
 - **Contact:** [@gxjansen](https://github.com/gxjansen)
 
 ---
@@ -167,12 +182,12 @@ See **[ARCHITECTURE.md](https://github.com/barazo-forum/.github/blob/main/ARCHIT
 ## Acknowledgments
 
 Built with:
-- [AT Protocol](https://atproto.com/) - The foundation for everything
-- [Bluesky](https://bsky.social/) - Inspiration and reference implementation
-- Open source community - Standing on the shoulders of giants
+- [AT Protocol](https://atproto.com/) -- The foundation for everything
+- [Bluesky](https://bsky.social/) -- Inspiration and reference implementation
+- Open source community -- Standing on the shoulders of giants
 
 ---
 
-**Barazo** - Forums for the open web
+**Barazo** -- Forums for the open web
 
-© 2026 Barazo. AGPL-3.0 (backend) + MIT (frontend/lexicons/deploy).
+(c) 2026 Barazo. AGPL-3.0 (backend) + MIT (frontend/lexicons/deploy).
